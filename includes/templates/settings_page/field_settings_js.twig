@@ -1,0 +1,37 @@
+<script type='text/javascript'>
+  function gf_paymentspring_populate_select() {
+    var options = ["<option value=''></option>"];
+    jQuery.each(window.form.fields, function(i, field) {
+      if (field.inputs){
+        jQuery.each(field.inputs, function(i, input) {
+          options.push("<option value='", input.id, "'>", field.label, " (", input.label, ") (ID: ", input.id, ")</option>");
+        });
+      } else {
+        options.push("<option value='", field.id, "'>", field.label, " (ID: ", field.id, ")</option>");
+      }
+    });
+    jQuery("select[id^=field_paymentspring_]").html(options.join(""));
+  }
+  jQuery(document).bind("gform_field_deleted", gf_paymentspring_populate_select);
+  jQuery(document).bind("gform_field_added", gf_paymentspring_populate_select);
+  gf_paymentspring_populate_select();
+
+  // Makes anything with the '.paymentspring_card_setting' class appear
+  // when the credit card settings drop down is clicked.
+  fieldSettings["creditcard"] += ", .paymentspring_card_setting";
+
+  // Initializes inputs to stored values.
+  jQuery(document).bind("gform_load_field_settings", function (event, field, form) {
+    jQuery("#field_paymentspring_card_value").attr("checked", field["field_paymentspring_card"] == true);
+    jQuery("#paymentspring_customer_fields").toggle(field["field_paymentspring_card"] == true);
+
+    var fields = [ 
+      {% for key, value in payment_fields %} 
+        "{{key}}",
+      {% endfor %}
+    ];
+    fields.map(function(fname) {
+      jQuery("#field_paymentspring_" + fname).attr("value", field["field_paymentspring_" + fname]);
+    });
+  });
+</script>

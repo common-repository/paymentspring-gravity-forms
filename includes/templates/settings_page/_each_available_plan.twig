@@ -1,0 +1,7 @@
+<input name="gf_paymentspring_account[plan_{{plan.id}}]" type="hidden" value="disabled"/>
+<input id="gf_paymentspring_plan_{{plan.id}}" name="gf_paymentspring_account[plan_{{plan.id}}]" type="checkbox" value="enabled" 
+  {% if options['plan_' ~ plan.id] == 'enabled' %} 
+    checked="checked" 
+  {% endif %}
+/>
+<label for="gf_paymentspring_plan_{{plan.id}}">{{plan.name}}</label>

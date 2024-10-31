@@ -1,0 +1,10 @@
+<div class='validation_error'>{{message}}</div>
+<script>
+  alert('{{message}}');
+</script>
+<script>
+  jQuery("form[id^='gform_']").submit(function(){
+    alert('{{msg}}');
+    return false;
+  });
+</script>

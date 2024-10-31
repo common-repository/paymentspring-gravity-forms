@@ -1,0 +1,99 @@
+<form method="post" action="options.php">
+  <h3>{{ _e( "PaymentSpring Account Info" ) }}</h3>
+  {{ settings_fields( "gf_paymentspring_account_options" ) }}
+  <table class="form-table">
+    <tr>
+      <th>
+        <label for="gf_paymentspring_mode">{{ _e( "API Mode" ) }}</label><?php gform_tooltip( "gf_paymentspring_api_mode" ); ?>
+      </th>
+      <td>
+        {{ include("settings_page/_mode.twig", {type: "live", name: "Live"}) }}
+        <br>
+        {{ include("settings_page/_mode.twig", {type: "test", name: "Test"}) }}
+      </td>
+    </tr>
+    <tr>
+      {{ include('settings_page/_api_key_field.twig', {id: 'test_public_key', label: "Test Public Key"}) }}
+    </tr>
+    <tr>
+      {{ include('settings_page/_api_key_field.twig', {id: 'test_private_key', label: "Test Private Key"}) }}
+    </tr>
+    <tr>
+      {{ include('settings_page/_api_key_field.twig', {id: 'live_public_key', label: "Live Public Key"}) }}
+    </tr>
+    <tr>
+      {{ include('settings_page/_api_key_field.twig', {id: 'live_private_key', label: "Live Private Key"}) }}
+    </tr>
+    {% if show_plans %}
+      <tr>
+        <th>{{ _e("Enabled Plans") }}</th>
+        <td>
+          {% for plan in available_plans.list %}
+            {{ include( "settings_page/_each_available_plan.twig", {plan: plan} ) }}
+            <br>
+          {% endfor %}
+        </td>
+      </tr> 
+    {% endif %}
+    <tr>
+      <th>
+        Allow One Time Charges
+      </th>
+      <td>
+        <input type="hidden" name="gf_paymentspring_account[allow_one_time_charges]" value="false">
+        <input type="checkbox" name="gf_paymentspring_account[allow_one_time_charges]" value="true" {% if allow_one_time_charges == "true" %} checked="checked" {% endif %}>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Create Customer on Single Purchases 
+      </th>
+      <td>
+        <input type="hidden" name="gf_paymentspring_account[create_customer_on_one_time_purchase]" value="false">
+        <input type="checkbox" name="gf_paymentspring_account[create_customer_on_one_time_purchase]" value="true" {% if create_customer_on_one_time_purchase == "true" %} checked="checked" {% endif %}>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Create a customer without charging 
+      </th>
+      <td>
+        <input type="hidden" name="gf_paymentspring_account[customer_only]" value="false">
+        <input type="checkbox" name="gf_paymentspring_account[customer_only]" value="true" {% if customer_only == "true" %} checked="checked" {% endif %}>
+      </td>
+    </tr>
+    <tr>
+      <th>{{ _e("Enabled Receipt Template") }}</th>
+      <td>
+        <select name="gf_paymentspring_account[receipt_template_id]">
+          {% for template in available_templates.list %}
+            <option value="{{template.id}}" {% if receipt_template_id == template.id %} selected {% endif %}>{{ template.name }}</option>
+          {% endfor %}
+        </select>
+      </td>
+    </tr> 
+    <tr>
+      <th>
+        Always send receipts
+      </th>
+      <td>
+        <input type="hidden" name="gf_paymentspring_account[send_receipts]" value="false">
+        <input type="checkbox" name="gf_paymentspring_account[send_receipts]" value="true" {% if send_receipts == "true" %} checked="checked" {% endif %}>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Allow Customers To Override Plan Amounts
+      </th>
+      <td>
+        <input type="hidden" name="gf_paymentspring_account[customers_can_override_plan_amount]" value="false">
+        <input type="checkbox" name="gf_paymentspring_account[customers_can_override_plan_amount]" value="true" {% if customers_can_override_plan_amount == "true" %} checked="checked" {% endif %}>
+      </td>
+    </tr>
+  </table>
+
+  <p class="submit">
+    <input type="submit" name="gf_paymentspring_submit" class="button-primary" value="{{ _e( "Save Settings" ) }}">
+  </p>
+</form>
+

@@ -1,0 +1,109 @@
+[
+    {
+        "name": "paymentspring/paymentspring-php",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/paymentspring/paymentspring-php.git",
+            "reference": "e99762fb4c63f51d0a7ac361e22350d630fc3182"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/paymentspring/paymentspring-php/zipball/e99762fb4c63f51d0a7ac361e22350d630fc3182",
+            "reference": "e99762fb4c63f51d0a7ac361e22350d630fc3182",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4"
+        },
+        "time": "2017-04-12T16:56:20+00:00",
+        "type": "package",
+        "installation-source": "source",
+        "autoload": {
+            "files": [
+                "init.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-2.0"
+        ],
+        "authors": [
+            {
+                "name": "PaymentSpring",
+                "email": "support@paymentspring.com"
+            }
+        ],
+        "description": "PHP library for the PaymentSpring API",
+        "keywords": [
+            "api",
+            "payments",
+            "paymentspring"
+        ]
+    },
+    {
+        "name": "twig/twig",
+        "version": "v1.33.1",
+        "version_normalized": "1.33.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/twigphp/Twig.git",
+            "reference": "a87f959f4b691da66aada267a2dfdb260d0bb58a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/twigphp/Twig/zipball/a87f959f4b691da66aada267a2dfdb260d0bb58a",
+            "reference": "a87f959f4b691da66aada267a2dfdb260d0bb58a",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.2.7"
+        },
+        "require-dev": {
+            "psr/container": "^1.0",
+            "symfony/debug": "~2.7",
+            "symfony/phpunit-bridge": "~3.3@dev"
+        },
+        "time": "2017-04-18T21:43:11+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.33-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Twig_": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com",
+                "homepage": "http://fabien.potencier.org",
+                "role": "Lead Developer"
+            },
+            {
+                "name": "Armin Ronacher",
+                "email": "armin.ronacher@active-4.com",
+                "role": "Project Founder"
+            },
+            {
+                "name": "Twig Team",
+                "homepage": "http://twig.sensiolabs.org/contributors",
+                "role": "Contributors"
+            }
+        ],
+        "description": "Twig, the flexible, fast, and secure template language for PHP",
+        "homepage": "http://twig.sensiolabs.org",
+        "keywords": [
+            "templating"
+        ]
+    }
+]

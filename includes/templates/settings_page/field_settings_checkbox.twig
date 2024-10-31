@@ -1,0 +1,21 @@
+<li class="paymentspring_card_setting field_setting">
+  <input type="checkbox" id="field_paymentspring_card_value" onclick="jQuery('#paymentspring_customer_fields').toggle(); SetFieldProperty('field_paymentspring_card', this.checked);" />
+  <label for="field_paymentspring_card_value" class="inline">{{_e( "Use with PaymentSpring?", "gf_paymentspring" )}} {{gform_tooltip( "gf_paymentspring_use_card_checkbox" )}}</label>
+  <div id="paymentspring_customer_fields">
+    <table style="width:375px">
+      <tbody>
+        {% for key, value in payment_fields %}
+          <tr>
+            <td style='width:100px'>
+              <label for='field_paymentspring_{{key}}'>{{value}}</label>
+            </td>
+            <td>
+              <select style='width:100%' id='field_paymentspring_{{key}}' onchange="SetFieldProperty('field_paymentspring_{{key}}', this.value);">
+              </select>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</li>

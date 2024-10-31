@@ -1,0 +1,7 @@
+{
+    "name": "paymentspring/paymentspring-gravity-forms",
+    "require": {
+      "paymentspring/paymentspring-php": "@dev",
+      "twig/twig": "^1.32"
+    }
+}
